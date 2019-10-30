@@ -1,0 +1,47 @@
+import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+data = pd.read_csv('C:\\Users\Jasmine\Downloads\cmc.data', sep=',')
+data.columns = [
+    'wife_age', 
+    'wife_edu', 
+    'husband_edu', 
+    '#kids', 
+    'wife_religion', 
+    'wife_working?', 
+    'husb_job', 
+    'standard_of_living', 
+    'media_exposure', 
+    'bcontrol']
+data.head(30)
+#THIS IS A MESS
+#sns.countplot(y = 'wife_age', hue = 'bcontrol', data = data)
+
+#higher the number ~ higher the wife's education
+#volume of birth control increases by education but doesn't surpass "not using bcontrol" until the highest education
+#sns.countplot(y = 'wife_edu', hue = 'bcontrol', data = data)
+
+#wowowow, not using bc exceeds each category
+#sns.countplot(y = 'husband_edu', hue = 'bcontrol', data = data)
+
+#general trend of trying to start a family, 0 = most likely to not have bcontrol
+#sns.countplot(y = '#kids', hue = 'bcontrol', data = data)
+
+#wife's religion 0 = nonIslam, 1 = Islam
+#major change---all choices have equal weight under non-religious category whereas Islam has some preferences
+#sns.countplot(y = 'wife_religion', hue = 'bcontrol', data = data)
+
+#wife working = 1, wife not working = 0
+#volume increases from "wife working" to "not working", but the general choice to stay without birth control wins in each
+#sns.countplot(y = 'wife_working?', hue = 'bcontrol', data = data)
+
+#sns.countplot(y = 'husb_job', hue = 'bcontrol', data = data)
+
+#volume to use bc increases with higher standard of living, but choice to do use bc wins
+#sns.countplot(y = 'standard_of_living', hue = 'bcontrol', data = data)
+
+# 0 = good media coverage, 1 = not good
+# sns.countplot(y = 'media_exposure', hue = 'bcontrol', data = data)
+
+    
